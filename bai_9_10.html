@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<body>
+<script>
+  let mucSuDungDien = +prompt("Nhập mức sử dụng điện dân dụng (kWh) năm 2025 trong tháng này của bạn");
+  let giaDienTheoBac;
+  let tienDien;
+  if (mucSuDungDien <= 50) {
+    alert("áp dụng giá điện bậc 1");
+    giaDienTheoBac = 1984;
+    tienDien = mucSuDungDien * giaDienTheoBac;
+    alert(`tiền điện tháng này là: ${tienDien} Đồng`);
+  } else if (mucSuDungDien <= 100) {
+    alert("áp dụng giá điện bậc 2");
+    giaDienTheoBac = 2050;
+    tienDien = mucSuDungDien * giaDienTheoBac;
+    alert(`tiền điện tháng này là: ${tienDien} Đồng`);
+  } else if (mucSuDungDien <= 200) {
+    alert("áp dụng giá điện bậc 3");
+    giaDienTheoBac = 2380;
+    tienDien = mucSuDungDien * giaDienTheoBac;
+    alert(`tiền điện tháng này là: ${tienDien} Đồng`);
+  } else if (mucSuDungDien <= 300) {
+    alert("áp dụng giá điện bậc 4");
+    giaDienTheoBac = 2998;
+    tienDien = mucSuDungDien * giaDienTheoBac;
+    alert(`tiền điện tháng này là: ${tienDien} Đồng`);
+  } else if (mucSuDungDien <= 400) {
+    alert("áp dụng giá điện bậc 5");
+    giaDienTheoBac = 3350;
+    tienDien = mucSuDungDien * giaDienTheoBac;
+    alert(`tiền điện tháng này là: ${tienDien} Đồng`);
+  } else {
+    alert("áp dụng giá điện bậc 6");
+    giaDienTheoBac = 3460;
+    tienDien = mucSuDungDien * giaDienTheoBac;
+    alert(`tiền điện tháng này là: ${tienDien} Đồng`);
+  }
+</script>
+</body>
+</html>

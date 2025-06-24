@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+<h1>Áp dụng cho khoản vay dưới 100 triệu</h1>
+<input id="check" placeholder="nhập khoản vay"/>
+<input id="check2" placeholder="nhập tối đa 12 tháng"/>
+<button type="button" onclick="tinhLai()">Kiểm tra</button>
+<p id="result"></p>
+</body>
+<script>
+  function tinhLai() {
+    let khoanVay = +document.getElementById('check').value;
+    let soThang = +document.getElementById('check2').value;
+    let tienLai;
+    let laiVay = 1/100;
+    if (khoanVay <= 100000000) {
+      switch(soThang) {
+        case 1:
+          tienLai = khoanVay*laiVay;
+          document.getElementById('result').innerHTML = `lãi phải trả sau khi vay 1 tháng: ${tienLai}`;
+          break;
+        case 2:
+          tienLai = (khoanVay-(khoanVay*0.1))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        case 3:
+          tienLai = (khoanVay-(khoanVay*0.2))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        case 4:
+          tienLai = (khoanVay-(khoanVay*0.3))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        case 5:
+          tienLai = (khoanVay-(khoanVay*0.4))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        case 6:
+          tienLai = (khoanVay-(khoanVay*0.5))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        case 7:
+          tienLai = (khoanVay-(khoanVay*0.6))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        case 8:
+          tienLai = (khoanVay-(khoanVay*0.7))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        case 9:
+          tienLai = (khoanVay-(khoanVay*0.8))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        case 10:
+          tienLai = (khoanVay-(khoanVay*0.9))*laiVay;
+          document.getElementById('result').innerHTML = `lãi sau khi vay các tháng tiếp theo: ${tienLai}`;
+          break;
+        default:
+          document.getElementById('result').innerHTML = "<b>Chúc mừng bạn đã thanh toán thành công cả gốc lẫn lãi</b>";
+      }
+    } else {
+      document.getElementById('result').innerHTML = "<b>Không hợp lệ, vui lòng nhập đúng số tiền</b>";
+    }
+  }
+</script>
+</html>

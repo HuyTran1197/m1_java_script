@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thuế cá nhân có HĐLĐ trên 3 tháng</title>
+</head>
+<body>
+<script>
+  // 11tr + (n*4,4), tinhthue các bậc
+  let luongCaNhan = +prompt("nhập lương cơ bản bao gồm tiền lương, tiền công, không bao gồm phụ cấp");
+  let phuCap = +prompt("nhập tiền trợ cấp như ăn trưa, xăng xe,v..v (nếu có)");
+  let tangCa = +prompt("nhập tiền tăng ca (nếu có)");
+  let n = +prompt("nhập số người phụ thuộc, nếu không có vui lòng nhập 0");
+  let baoHiemXaHoi, baoHiemYTe, baoHiemTaiNan;
+  let khoanGiamTruThue, khoanMienThue, giamTruBaoHiem;
+  let thuNhapPhaiChiuThue, thuNhapTinhThue;
+  let tongLuong;
+  let thueCaNhanPhaiNop;
+  let trieu = 1000000;
+  let muoiMot = 11000000;
+  let bon = 4400000;
+  if (luongCaNhan < 11*trieu) {
+    alert("Bạn không cần phải đóng thuế");
+  } else {
+    tongLuong = luongCaNhan + phuCap + tangCa;
+    khoanMienThue = phuCap + tangCa;
+    thuNhapPhaiChiuThue = tongLuong - khoanMienThue;
+    baoHiemXaHoi = thuNhapPhaiChiuThue * 0.08;
+    baoHiemYTe = thuNhapPhaiChiuThue * 0.015;
+    baoHiemTaiNan = thuNhapPhaiChiuThue * 0.01;
+    giamTruBaoHiem = baoHiemYTe + baoHiemTaiNan + baoHiemXaHoi;
+    khoanGiamTruThue = giamTruBaoHiem + muoiMot + (n*bon);
+    thuNhapTinhThue = thuNhapPhaiChiuThue - khoanGiamTruThue;
+    if (thuNhapTinhThue <= 5*trieu) {
+      thueCaNhanPhaiNop = 0.05*thuNhapTinhThue;
+      alert(`Vậy thuế thu nhập cá nhân bậc 1 của bạn là: ${thueCaNhanPhaiNop} Đồng`);
+    } else if (thuNhapTinhThue <= 10*trieu) {
+      thueCaNhanPhaiNop = 0.1*thuNhapTinhThue - 250000;
+      alert(`Vậy thuế thu nhập cá nhân bậc 2 của bạn là: ${thueCaNhanPhaiNop} Đồng`);
+    } else if (thuNhapTinhThue <= 18*trieu) {
+      thueCaNhanPhaiNop = 0.15*thuNhapTinhThue - 750000;
+      alert(`Vậy thuế thu nhập cá nhân bậc 3 của bạn là: ${thueCaNhanPhaiNop} Đồng`);
+    } else if (thuNhapTinhThue <= 32*trieu) {
+      thueCaNhanPhaiNop = 0.2*thuNhapTinhThue - 1650000;
+      alert(`Vậy thuế thu nhập cá nhân bậc 4 của bạn là: ${thueCaNhanPhaiNop} Đồng`);
+    } else if (thuNhapTinhThue <= 52*trieu) {
+      thueCaNhanPhaiNop = 0.25*thuNhapTinhThue - 3250000;
+      alert(`Vậy thuế thu nhập cá nhân bậc 5 của bạn là: ${thueCaNhanPhaiNop} Đồng`);
+    } else if (thuNhapTinhThue <= 80*trieu) {
+      thueCaNhanPhaiNop = 0.3*thuNhapTinhThue - 5850000;
+      alert(`Vậy thuế thu nhập cá nhân bậc 6 của bạn là: ${thueCaNhanPhaiNop} Đồng`);
+    } else {
+      thueCaNhanPhaiNop = 0.35*thuNhapTinhThue - 9850000;
+      alert(`Vậy thuế thu nhập cá nhân bậc 7 của bạn là: ${thueCaNhanPhaiNop} Đồng`);
+    }
+  }
+  if (thueCaNhanPhaiNop < 0) {
+    document.write("<b>Trường hợp tiền thuế phải nộp trở nên âm, công ty sẽ có chính sách hỗ trợ hoặc hoàn thuế từ chính phủ.</b>");
+  }
+</script>
+</body>
+</html>
